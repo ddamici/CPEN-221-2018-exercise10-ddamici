@@ -16,7 +16,33 @@ public class PowerGrid {
 	 */
 	public static boolean canLoadBalance(int a, int b, int c) {
 		// TODO: implement this method
-		return false;
+
+
+          for(int i=0; (i<1000)&&((a!=b)||(b!=c)||(a!=c));i++) {
+              if (a > b) {
+                  a = a - b;
+                  b = b * 2;
+              }
+              if (b > c) {
+                  b = b - c;
+                  c = c * 2;
+              }
+              if (a < b) {
+                  b = b - a;
+                  a = a * 2;
+              }
+              if (b < c) {
+                  c = c - b;
+                  b = b * 2;
+              }
+          }
+
+        if(a==b&&b==c){
+            return true;
+        }else{
+            return false;
+        }
+
 	}
 
 }
